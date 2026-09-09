@@ -402,7 +402,7 @@
     .map-core::after { right: -0.27rem; }
 
     .map-core span {
-      max-width: 7ch;
+      width: max-content;
       color: var(--white);
       font-family: var(--display);
       font-size: 0.73rem;
@@ -561,6 +561,34 @@
 
     .step p { margin: 0; color: rgba(255,255,255,0.58); font-size: 0.95rem; }
 
+    .scenario {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+      gap: clamp(1.5rem, 4vw, 3.5rem);
+      margin-top: clamp(2.5rem, 5vw, 4rem);
+      padding: clamp(1.5rem, 3vw, 2.4rem);
+      border: 1px solid rgba(255,255,255,0.17);
+      border-left: 3px solid var(--accent);
+      background: rgba(255,255,255,0.035);
+    }
+
+    .scenario .section-label { margin-bottom: 1rem; color: var(--accent-bright); }
+
+    .scenario h3 {
+      max-width: 22ch;
+      margin-bottom: 1rem;
+      font-family: var(--display);
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.25;
+    }
+
+    .scenario p { color: rgba(255,255,255,0.7); font-size: 1rem; }
+    .scenario p:last-child { margin-bottom: 0; }
+    .scenario .scenario-note { color: rgba(255,255,255,0.5); font-size: 0.83rem; }
+    .scenario strong { color: var(--white); font-weight: 700; }
+
     .principles-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -717,6 +745,7 @@
       .signal-map { min-height: 27rem; }
       .mission-statement { max-width: 34rem; }
       .steps { grid-template-columns: 1fr; }
+      .scenario { grid-template-columns: 1fr; }
       .step { min-height: auto; }
       .step-number { margin-bottom: 2rem; }
       .contact-card { max-width: 32rem; }
@@ -792,7 +821,7 @@
             <span class="map-line"></span>
             <span class="map-line"></span>
             <span class="map-line"></span>
-            <div class="map-core"><span>Critical asset intelligence</span></div>
+            <div class="map-core"><span>Critical<br>asset<br>intelligence</span></div>
             <span class="signal s1">Condition</span>
             <span class="signal s2">Maintenance</span>
             <span class="signal s3">Access</span>
@@ -846,6 +875,19 @@
             <p>Notify the right human or invoke a bounded workflow through existing systems—with approvals, constraints, and an auditable record.</p>
           </article>
         </div>
+
+        <aside class="scenario" aria-labelledby="scenario-title">
+          <div>
+            <span class="section-label">Illustrative scenario</span>
+            <h3 id="scenario-title">A machine fault. A recent software change.</h3>
+            <p class="scenario-note">A hypothetical example of the intended concept.</p>
+          </div>
+          <div>
+            <p>Imagine a CNC machine starts faulting shortly after a software update. Is the change responsible, or could wear or a maintenance issue explain the fault?</p>
+            <p>GoLeap could bring fault signals, the software change record, maintenance history, and access events into one investigation—helping an engineer test possible causes without treating timing alone as proof.</p>
+            <p><strong>The next step:</strong> the engineer could review the evidence and approve a diagnostic workflow through existing tools before any production change.</p>
+          </div>
+        </aside>
       </div>
     </section>
 
